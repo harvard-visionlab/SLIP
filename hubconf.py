@@ -48,12 +48,12 @@ def vits16_clip_25ep_yfcc15M(pretrained=True, **kwargs):
 
 	return model, transform
 
-def vits16_simclr_25ep_yfcc15M(pretrained=True, **kwargs):
+def vits16_simclr_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
 	"""
 	SIMCLR_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SIMCLR_VITB16(**kwargs)
+	model = models.SIMCLR_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/simclr_small_25ep.pt"
 		cache_file_name = "simclr_small_25ep-11acf52e.pt"
