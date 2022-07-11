@@ -143,3 +143,127 @@ def vits16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256
 	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 
 	return model, transform
+
+# ===================================================================
+#  ViT-big
+# ===================================================================
+
+def vitb16_clip_25ep_yfcc15M(pretrained=True, **kwargs):
+	"""
+	CLIP_VITB16 (pre-trained on yfcc15M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.CLIP_VITB16(**kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_25ep.pt"
+		cache_file_name = "clip_base_25ep-201382ca.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = '201382ca'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_simclr_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
+	"""
+	SIMCLR_VITB16 (pre-trained on yfcc15M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SIMCLR_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/simclr_base_25ep.pt"
+		cache_file_name = "simclr_base_25ep-c597f769.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'c597f769'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_slip_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
+	"""
+	SLIP_VITB16 (pre-trained on yfcc15M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_25ep.pt"
+		cache_file_name = "slip_base_25ep-a37da619.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'a37da619'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_slip_50ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
+	"""
+	SLIP_VITB16 (pre-trained on yfcc15M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_50ep.pt"
+		cache_file_name = "slip_base_50ep-1c346d5d.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = '1c346d5d'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
+	"""
+	SLIP_VITB16 (pre-trained on yfcc15M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_100ep.pt"
+		cache_file_name = "slip_base_100ep-cdd23730.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'cdd23730'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
