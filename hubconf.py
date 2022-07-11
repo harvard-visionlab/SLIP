@@ -39,7 +39,7 @@ def clip_vits16_yfcc15M_in1k(pretrained=True, **kwargs):
 			file_name=cache_file_name,
 			check_hash=True
 		)
-		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items}
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
 		model.load_state_dict(state_dict, strict=True)
 		model.hashid = '5d54c95a'
 		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
