@@ -33,12 +33,13 @@ def clip_vits16_yfcc15M_in1k(pretrained=True, **kwargs):
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_small_25ep.pt"
 		cache_file_name = "clip_small_25ep-5d54c95a.pt"
-		state_dict = torch.hub.load_state_dict_from_url(
+		checkpoint = torch.hub.load_state_dict_from_url(
 			url=checkpoint_url, 
 			map_location='cpu',
 			file_name=cache_file_name,
 			check_hash=True
 		)
+		state_dict = checkpoint['state_dict']
 		model.load_state_dict(state_dict, strict=True)
 		model.hashid = '5d54c95a'
 		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
