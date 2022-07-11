@@ -179,10 +179,10 @@ class SIMCLR(nn.Module):
     def _build_mlp(self, in_dim, mlp_dim, out_dim):
         return nn.Sequential(OrderedDict([
             ("layer1", nn.Linear(in_dim, mlp_dim)),
-            ("bn1", nn.SyncBatchNorm(mlp_dim)),
+            ("bn1", nn.SyncBatchNorm(mlp_dim) if torch.cuda.is_available() else nn.BatchNorm1d(mlp_dim)),
             ("relu1", nn.ReLU(inplace=True)),
             ("layer2", nn.Linear(mlp_dim, mlp_dim)),
-            ("bn2", nn.SyncBatchNorm(mlp_dim)),
+            ("bn2", nn.SyncBatchNorm(mlp_dim) if torch.cuda.is_available() else nn.BatchNorm1d(mlp_dim)),
             ("relu2", nn.ReLU(inplace=True)),
             ("layer3", nn.Linear(mlp_dim, out_dim)),
         ]))
@@ -218,10 +218,10 @@ class SLIP(CLIP):
     def _build_mlp(self, in_dim, mlp_dim, out_dim):
         return nn.Sequential(OrderedDict([
             ("layer1", nn.Linear(in_dim, mlp_dim)),
-            ("bn1", nn.SyncBatchNorm(mlp_dim)),
+            ("bn1", nn.SyncBatchNorm(mlp_dim) if torch.cuda.is_available() else nn.BatchNorm1d(mlp_dim)),
             ("relu1", nn.ReLU(inplace=True)),
             ("layer2", nn.Linear(mlp_dim, mlp_dim)),
-            ("bn2", nn.SyncBatchNorm(mlp_dim)),
+            ("bn2", nn.SyncBatchNorm(mlp_dim) if torch.cuda.is_available() else nn.BatchNorm1d(mlp_dim)),
             ("relu2", nn.ReLU(inplace=True)),
             ("layer3", nn.Linear(mlp_dim, out_dim)),
         ]))
