@@ -147,8 +147,11 @@ class CLIP(nn.Module):
 
         return x
 
-    def forward(self, image, text):
+    def forward(self, image, text=None):
         image_embed = self.encode_image(image)
+        if text is None:
+            return image_embed
+        
         text_embed = self.encode_text(text)
 
         return {'image_embed': image_embed,
@@ -189,8 +192,10 @@ class SIMCLR(nn.Module):
 
         return x
 
-    def forward(self, aug1, aug2):
+    def forward(self, aug1, aug2=None):
         h1 = self.visual(aug1)
+        if aug2 is None: 
+            return self.image_mlp(h1)        
         h2 = self.visual(aug2)
 
         aug1_embed = self.image_mlp(h1)
@@ -221,7 +226,10 @@ class SLIP(CLIP):
             ("layer3", nn.Linear(mlp_dim, out_dim)),
         ]))
 
-    def forward(self, image, text, aug1, aug2):
+    def forward(self, image, text=None, aug1=None, aug2=None):
+        if text is None and aug1 is None and aug2 is None:
+            return self.image_mlp(self.visual(image))
+        
         aug1_embed = self.image_mlp(self.visual(aug1))
         aug2_embed = self.image_mlp(self.visual(aug2))
         
