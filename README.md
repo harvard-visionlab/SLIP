@@ -1,3 +1,5 @@
+# Fork of [facebookresearch/SLIP](https://github.com/facebookresearch/SLIP)
+
 # [SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org/abs/2112.12750)
 
 <p align="center"><img src="slip.png" alt="SLIP framework" width="400"/></p>
