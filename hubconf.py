@@ -320,12 +320,12 @@ def vitb16_clip_35ep_cc12M(pretrained=True, **kwargs):
 
 	return model, transform
 
-def vitb16_slip_40ep_cc3M(pretrained=True, **kwargs):
+def vitb16_slip_40ep_cc3M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
 	"""
 	SLIP_VITB16 (pre-trained on Conceptual Captions 3M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(**kwargs)
+	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_40ep.pt"
 		cache_file_name = "slip_base_cc3m_40ep-d3215d15.pt"
@@ -344,12 +344,12 @@ def vitb16_slip_40ep_cc3M(pretrained=True, **kwargs):
 
 	return model, transform
 
-def vitb16_slip_35ep_cc12M(pretrained=True, **kwargs):
+def vitb16_slip_35ep_cc12M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **kwargs):
 	"""
 	SLIP_VITB16 (pre-trained on Conceptual Captions 12M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(**kwargs)
+	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_35ep.pt"
 		cache_file_name = "slip_base_cc12m_35ep-d8a0150a.pt"
