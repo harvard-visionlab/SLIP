@@ -267,3 +267,103 @@ def vitb16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256
 	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 
 	return model, transform
+
+# ===================================================================
+#  ViT-big (other datasets)
+# ===================================================================
+
+def vitb16_clip_40ep_cc3M(pretrained=True, **kwargs):
+	"""
+	CLIP_VITB16 (pre-trained on Conceptual Captions 3M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.CLIP_VITB16(**kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_cc3m_40ep.pt"
+		cache_file_name = "clip_base_cc3m_40ep-f017d438.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'f017d438'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_clip_35ep_cc12M(pretrained=True, **kwargs):
+	"""
+	CLIP_VITB16 (pre-trained on Conceptual Captions 12M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.CLIP_VITB16(**kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_cc12m_35ep.pt"
+		cache_file_name = "clip_base_cc12m_35ep-44e869f1.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = '44e869f1'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_slip_40ep_cc3M(pretrained=True, **kwargs):
+	"""
+	SLIP_VITB16 (pre-trained on Conceptual Captions 3M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SLIP_VITB16(**kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_40ep.pt"
+		cache_file_name = "slip_base_cc3m_40ep-d3215d15.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'd3215d15'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
+
+def vitb16_slip_35ep_cc12M(pretrained=True, **kwargs):
+	"""
+	SLIP_VITB16 (pre-trained on Conceptual Captions 12M)
+	pretrained (bool): kwargs, load pretrained weights into the model
+	"""
+	model = models.SLIP_VITB16(**kwargs)
+	if pretrained:
+		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_35ep.pt"
+		cache_file_name = "slip_base_cc12m_35ep-d8a0150a.pt"
+		checkpoint = torch.hub.load_state_dict_from_url(
+			url=checkpoint_url, 
+			map_location='cpu',
+			file_name=cache_file_name,
+			check_hash=True
+		)
+		state_dict = {k.replace("module.",""):v for k,v in checkpoint['state_dict'].items()}
+		model.load_state_dict(state_dict, strict=True)
+		model.hashid = 'd8a0150a'
+		model.weights_file = os.path.join(torch.hub.get_dir(), "checkpoints", cache_file_name)
+		
+	transform = _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+	return model, transform
