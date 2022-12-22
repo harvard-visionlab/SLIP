@@ -6,7 +6,7 @@ import os
 import torch
 import torchvision
 
-# import models
+from . import models
 
 dependencies = ['torch', 'torchvision', 'models']
 
