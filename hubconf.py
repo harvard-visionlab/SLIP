@@ -6,7 +6,7 @@ import os
 import torch
 import torchvision
 
-import models
+import models as _models
 
 dependencies = ['torch', 'torchvision']
 
