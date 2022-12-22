@@ -14,6 +14,10 @@ from torch import nn
 
 import losses
 
+try:
+    from timm.models import _registry as registry
+except:
+    from timm.models import registry
 
 class LayerNorm(nn.LayerNorm):
     """Subclass torch's LayerNorm to handle fp16."""
@@ -262,7 +266,7 @@ def get_metric_names(model):
         return ['loss', 'ssl_loss', 'ssl_acc']
 
 
-@timm.models.registry.register_model
+@registry.register_model
 def vit_small_mocov3_patch16_224(**kwargs):
     model_kwargs = dict(patch_size=16, embed_dim=384, depth=12, num_heads=12, **kwargs)
     model = timm.models.vision_transformer._create_vision_transformer('vit_small_patch16_224', **model_kwargs)
