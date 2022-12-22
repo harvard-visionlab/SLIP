@@ -7,8 +7,11 @@ import torch
 import torchvision
 
 # import models
+import pathlib
 from importlib.machinery import SourceFileLoader
-models = SourceFileLoader("models","models.py").load_module()
+
+filedir = pathlib.Path(__file__).parent.resolve()
+models = SourceFileLoader("models",os.path.join(filedir, "models.py")).load_module()
 
 dependencies = ['torch', 'torchvision']
 
