@@ -8,7 +8,7 @@ import torchvision
 
 import models 
 
-print(dir(module))
+print(dir(models))
 
 dependencies = ['torch', 'torchvision']
 
