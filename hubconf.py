@@ -10,6 +10,8 @@ import models
 
 print(dir(models))
 
+print(os.path.abspath(models.__file__))
+
 dependencies = ['torch', 'torchvision']
 
 def _transform(resize=256, crop_size=224, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]):
