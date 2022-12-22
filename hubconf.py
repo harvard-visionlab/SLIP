@@ -6,11 +6,7 @@ import os
 import torch
 import torchvision
 
-from . import models
-
-print(dir(models))
-
-print(os.path.abspath(models.__file__))
+import models
 
 dependencies = ['torch', 'torchvision']
 
