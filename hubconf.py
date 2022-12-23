@@ -6,7 +6,7 @@ import os
 import torch
 import torchvision
 
-# import models
+# import models with relative import workaround:
 import pathlib
 from importlib.machinery import SourceFileLoader
 
