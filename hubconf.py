@@ -11,7 +11,7 @@ import pathlib
 from importlib.machinery import SourceFileLoader
 
 filedir = pathlib.Path(__file__).parent.resolve()
-models = SourceFileLoader("models",os.path.join(filedir, "models.py")).load_module()
+slip_models = SourceFileLoader("models",os.path.join(filedir, "models.py")).load_module()
 
 dependencies = ['torch', 'torchvision']
 
@@ -34,7 +34,7 @@ def vits16_clip_25ep_yfcc15M(pretrained=True, **kwargs):
 	CLIP_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.CLIP_VITS16(**kwargs)
+	model = slip_models.CLIP_VITS16(**kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_small_25ep.pt"
 		cache_file_name = "clip_small_25ep-5d54c95a.pt"
@@ -58,7 +58,7 @@ def vits16_simclr_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=25
 	SIMCLR_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SIMCLR_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SIMCLR_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/simclr_small_25ep.pt"
 		cache_file_name = "simclr_small_25ep-11acf52e.pt"
@@ -82,7 +82,7 @@ def vits16_slip_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_small_25ep.pt"
 		cache_file_name = "slip_small_25ep-0e78b02f.pt"
@@ -106,7 +106,7 @@ def vits16_slip_50ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_small_50ep.pt"
 		cache_file_name = "slip_small_50ep-b9a8fd80.pt"
@@ -130,7 +130,7 @@ def vits16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256
 	SLIP_VITS16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITS16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_small_100ep.pt"
 		cache_file_name = "slip_small_100ep-cc896760.pt"
@@ -158,7 +158,7 @@ def vitb16_clip_25ep_yfcc15M(pretrained=True, **kwargs):
 	CLIP_VITB16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.CLIP_VITB16(**kwargs)
+	model = slip_models.CLIP_VITB16(**kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_25ep.pt"
 		cache_file_name = "clip_base_25ep-201382ca.pt"
@@ -182,7 +182,7 @@ def vitb16_simclr_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=25
 	SIMCLR_VITB16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SIMCLR_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SIMCLR_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/simclr_base_25ep.pt"
 		cache_file_name = "simclr_base_25ep-c597f769.pt"
@@ -206,7 +206,7 @@ def vitb16_slip_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITB16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_25ep.pt"
 		cache_file_name = "slip_base_25ep-a37da619.pt"
@@ -230,7 +230,7 @@ def vitb16_slip_50ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITB16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_50ep.pt"
 		cache_file_name = "slip_base_50ep-1c346d5d.pt"
@@ -254,7 +254,7 @@ def vitb16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256
 	SLIP_VITB16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_100ep.pt"
 		cache_file_name = "slip_base_100ep-cdd23730.pt"
@@ -282,7 +282,7 @@ def vitl16_clip_25ep_yfcc15M(pretrained=True, **kwargs):
 	CLIP_VITL16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.CLIP_VITL16(**kwargs)
+	model = slip_models.CLIP_VITL16(**kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_large_25ep.pt"
 		cache_file_name = "clip_large_25ep-a8c4f7e3.pt"
@@ -306,7 +306,7 @@ def vitl16_simclr_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=25
 	SIMCLR_VITL16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SIMCLR_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SIMCLR_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/simclr_large_25ep.pt"
 		cache_file_name = "simclr_large_25ep-952bc376.pt"
@@ -330,7 +330,7 @@ def vitl16_slip_25ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITL16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_large_25ep.pt"
 		cache_file_name = "slip_large_25ep-ca86c4de.pt"
@@ -354,7 +354,7 @@ def vitl16_slip_50ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256,
 	SLIP_VITL16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_large_50ep.pt"
 		cache_file_name = "slip_large_50ep-3300707a.pt"
@@ -378,7 +378,7 @@ def vitl16_slip_100ep_yfcc15M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256
 	SLIP_VITL16 (pre-trained on yfcc15M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITL16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_large_100ep.pt"
 		cache_file_name = "slip_large_100ep-13c506e6.pt"
@@ -406,7 +406,7 @@ def vitb16_clip_40ep_cc3M(pretrained=True, **kwargs):
 	CLIP_VITB16 (pre-trained on Conceptual Captions 3M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.CLIP_VITB16(**kwargs)
+	model = slip_models.CLIP_VITB16(**kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_cc3m_40ep.pt"
 		cache_file_name = "clip_base_cc3m_40ep-f017d438.pt"
@@ -430,7 +430,7 @@ def vitb16_clip_35ep_cc12M(pretrained=True, **kwargs):
 	CLIP_VITB16 (pre-trained on Conceptual Captions 12M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.CLIP_VITB16(**kwargs)
+	model = slip_models.CLIP_VITB16(**kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/clip_base_cc12m_35ep.pt"
 		cache_file_name = "clip_base_cc12m_35ep-44e869f1.pt"
@@ -454,7 +454,7 @@ def vitb16_slip_40ep_cc3M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, **
 	SLIP_VITB16 (pre-trained on Conceptual Captions 3M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_40ep.pt"
 		cache_file_name = "slip_base_cc3m_40ep-d3215d15.pt"
@@ -478,7 +478,7 @@ def vitb16_slip_35ep_cc12M(pretrained=True, ssl_mlp_dim=4096, ssl_emb_dim=256, *
 	SLIP_VITB16 (pre-trained on Conceptual Captions 12M)
 	pretrained (bool): kwargs, load pretrained weights into the model
 	"""
-	model = models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
+	model = slip_models.SLIP_VITB16(ssl_mlp_dim=ssl_mlp_dim, ssl_emb_dim=ssl_emb_dim, **kwargs)
 	if pretrained:
 		checkpoint_url = "https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_35ep.pt"
 		cache_file_name = "slip_base_cc12m_35ep-d8a0150a.pt"
